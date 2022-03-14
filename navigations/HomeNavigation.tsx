@@ -24,8 +24,8 @@ const HomeNavigation = () => {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: "#00487e",
+        tabBarInactiveTintColor: "#1d86d7",
       })}
     >
       <Tab.Screen

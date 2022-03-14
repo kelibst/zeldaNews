@@ -12,7 +12,7 @@ const StackNavigation = () => {
         component={HomeScreen}
         options={{
           title: "Winners Library",
-          headerTintColor: Color.primary,
+          headerTintColor: Color.primaryBlue,
         }}
       />
       {/* <Stack.Screen
