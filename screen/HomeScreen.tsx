@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import Data from "../DataFile";
+import { FlatList } from "react-native-gesture-handler";
+import { connect, useSelector } from "react-redux";
 import Post from "../models/post";
 import RenderPost from "./RenderPost";
 
 const HomeScreen = () => {
+  const Data = useSelector((state) => state.Blogs.BlogData);
+  console.log(Data);
   return (
     <FlatList
       data={Data}
@@ -16,4 +17,8 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+const mapStateToProps = (state: { Blogs: { BlogData: {} } }) => ({
+  Blogs: state?.Blogs?.BlogData,
+});
+
+export default connect(mapStateToProps, {})(HomeScreen);
