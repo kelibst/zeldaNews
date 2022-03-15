@@ -3,15 +3,17 @@ import { connect, useSelector } from "react-redux";
 import Post from "../models/post";
 import RenderPost from "./RenderPost";
 
-const HomeScreen = () => {
-  const Data = useSelector((state) => state.Blogs.BlogData);
+const HomeScreen = (Props: { navigation: { navigate: Function } }) => {
+  const Data = useSelector(
+    (state: { Blogs: { BlogData: [] } }) => state.Blogs.BlogData
+  );
   console.log(Data);
   return (
     <FlatList
       data={Data}
       numColumns={2}
       renderItem={(itemData) => {
-        return <RenderPost item={itemData.item} />;
+        return <RenderPost item={itemData.item} navigator={Props.navigation} />;
       }}
     />
   );

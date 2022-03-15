@@ -14,9 +14,12 @@ import Post from "../models/post";
 
 export type Props = {
   item: Post;
+  navigator: {
+    navigate: Function;
+  };
 };
 
-const RenderPost: React.FC<Props> = ({ item }) => {
+const RenderPost: React.FC<Props> = ({ item, navigator }) => {
   let Tocmp: any = TouchableOpacity;
   if (Platform.OS === "android" && Platform.Version >= 21) {
     Tocmp = TouchableNativeFeedback;
@@ -27,7 +30,7 @@ const RenderPost: React.FC<Props> = ({ item }) => {
       <Tocmp
         useForground
         onPress={() => {
-          console.log("clicked");
+          navigator.navigate("PostDetails", { id: item.id, title: item.title });
         }}
       >
         <View>
