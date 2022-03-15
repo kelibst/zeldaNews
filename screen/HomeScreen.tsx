@@ -1,13 +1,11 @@
 import { FlatList } from "react-native-gesture-handler";
 import { connect, useSelector } from "react-redux";
-import Post from "../models/post";
 import RenderPost from "./RenderPost";
 
 const HomeScreen = (Props: { navigation: { navigate: Function } }) => {
   const Data = useSelector(
     (state: { Blogs: { BlogData: [] } }) => state.Blogs.BlogData
   );
-  console.log(Data);
   return (
     <FlatList
       data={Data}
