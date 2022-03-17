@@ -1,10 +1,14 @@
 import Data from "../../DataFile";
 import Post from "../../models/post";
+import { ADD_TO_FAV } from "../actions/favorites";
+import { RM_FR_FAV } from "../actions/favorites";
 import { ADD_BLOG, GET_BLOG } from "../actions/blogs";
+import favorites from "./favorites";
 
 const initialState = {
   BlogData: Data,
   currentBlog: {},
+  favorites: [1, 3],
 };
 
 export default (
@@ -26,12 +30,17 @@ export default (
       };
     case GET_BLOG:
       const currentGlog = Data.find((data, ind) => {
-        console.log(data.id, action.product_id);
         return data.id === action.product_id;
       });
       return {
         ...state,
         currentBlog: currentGlog,
+      };
+    case ADD_TO_FAV:
+      const newFav = [...favorites, action.product_id];
+      return {
+        ...state,
+        favorites: newFav,
       };
   }
   return state;
