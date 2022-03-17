@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import React from "react";
 import Post from "../models/post";
+import mainStyle from "../styles/mainStyle";
 
 export type Props = {
   item: Post;
@@ -34,11 +35,13 @@ const RenderPost: React.FC<Props> = ({ item, navigator }) => {
         }}
       >
         <View>
-          <View style={styles.imgContainer}>
-            <Image style={styles.image} source={{ uri: item.post_img }} />
+          <View style={mainStyle.imgContainer}>
+            <Image style={mainStyle.image} source={{ uri: item.post_img }} />
           </View>
           <View>
-            <Text style={styles.title}>{item?.title}</Text>
+            <TouchableOpacity>
+              <Text style={mainStyle.title}>{item?.title}</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Tocmp>
@@ -66,23 +69,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
     elevation: 8,
-  },
-  imgContainer: {
-    height: 150,
-    width: "100%",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    overflow: "hidden",
-  },
-  title: {
-    fontSize: 18,
-    fontFamily: "sans-serif",
-    color: "black",
-    fontWeight: "bold",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
   },
 });
 export default RenderPost;

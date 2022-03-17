@@ -1,8 +1,10 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React, { Dispatch, useEffect } from "react";
 import { connect } from "react-redux";
 import { getBlog } from "../store/actions/blogs";
 import Post from "../models/post";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import mainStyle from "../styles/mainStyle";
 
 export interface Props {
   route: {
@@ -15,11 +17,25 @@ const PostDetails: React.FC<Props> = ({ route, getBlog, currentBlog }) => {
   useEffect(() => {
     getBlog(route.params.id);
   }, [route.params.id]);
-  console.log(currentBlog, "currentBlog");
   return (
-    <View>
-      <Text>PostDetails</Text>
-    </View>
+    <ScrollView>
+      <TouchableOpacity>
+        <Text style={mainStyle.title}>{currentBlog.title}</Text>
+      </TouchableOpacity>
+      <View>
+        <View style={mainStyle.imgContainer}>
+          <Image
+            style={mainStyle.image}
+            source={{ uri: currentBlog.post_img }}
+          />
+        </View>
+        <View>
+          <TouchableOpacity>
+            <Text style={mainStyle.title}>{currentBlog?.description}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 const mapStateToProps = (state: { Blogs: { currentBlog: {} } }) => ({
