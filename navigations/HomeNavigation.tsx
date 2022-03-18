@@ -1,6 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Color from "../constants/Color";
+import FavoriteList from "../screen/FavoriteList";
+import UserProfile from "../screen/UserProfile";
 import StackNavigation from "./StackNavigation";
 
 const Tab = createBottomTabNavigator();
@@ -18,6 +20,9 @@ const HomeNavigation = () => {
             case "favorites":
               iconName = focused ? "heart" : "heart-outline";
               break;
+            case "account":
+              iconName = focused ? "person-circle" : "person-circle-outline";
+              break;
             default:
               iconName = focused ? "ios-home" : "ios-home";
           }
@@ -33,14 +38,23 @@ const HomeNavigation = () => {
         component={StackNavigation}
         options={{ headerShown: false }}
       />
-      {/* <Tab.Screen
-           name="favorites"
-           component={FavoriteList}
-           options={{
-             title: "Favorites",
-             headerTintColor: Color.primary,
-           }}
-         /> */}
+      <Tab.Screen
+        name="favorites"
+        component={FavoriteList}
+        options={{
+          title: "Favorites Blog",
+          headerTintColor: Color.primary,
+        }}
+      />
+
+      <Tab.Screen
+        name="account"
+        component={UserProfile}
+        options={{
+          title: "User Section",
+          headerTintColor: Color.primary,
+        }}
+      />
     </Tab.Navigator>
   );
 };
