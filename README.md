@@ -25,6 +25,10 @@ To get a local copy up, clone it and running follow these simple example steps.
 `npm install`
 `npm start`
 
+## To do
+
+- connect application to firebase after to fetch collections
+
 ## Author
 
 110
