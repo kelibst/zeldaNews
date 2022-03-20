@@ -23,7 +23,7 @@ const PostDetails: React.FC<Props> = ({ route, getBlog, currentBlog }) => {
         <Text style={mainStyle.title}>{currentBlog.title}</Text>
       </TouchableOpacity>
       <View>
-        <View style={mainStyle.imgContainer}>
+        <View style={mainStyle.detimgContainer}>
           <Image
             style={mainStyle.image}
             source={{ uri: currentBlog.post_img }}
@@ -31,7 +31,7 @@ const PostDetails: React.FC<Props> = ({ route, getBlog, currentBlog }) => {
         </View>
         <View>
           <TouchableOpacity>
-            <Text style={mainStyle.title}>{currentBlog?.description}</Text>
+            <Text>{currentBlog?.description}</Text>
           </TouchableOpacity>
         </View>
       </View>

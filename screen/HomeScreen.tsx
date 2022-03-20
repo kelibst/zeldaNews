@@ -9,7 +9,7 @@ const HomeScreen = (Props: { navigation: { navigate: Function } }) => {
   return (
     <FlatList
       data={Data}
-      numColumns={2}
+      // numColumns={2}
       renderItem={(itemData) => {
         return <RenderPost item={itemData.item} navigator={Props.navigation} />;
       }}

@@ -9,10 +9,10 @@ const StackNavigation = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Houses"
+        name="Blogs"
         component={HomeScreen}
         options={{
-          title: "Winners Library",
+          title: "Zelda Blog",
           headerTintColor: Color.primaryBlue,
         }}
       />

@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 const FavoriteList = () => {
   return (
     <View>
-      <Text>Favorites list</Text>
+      <Text>Favorites listrr</Text>
     </View>
   );
 };

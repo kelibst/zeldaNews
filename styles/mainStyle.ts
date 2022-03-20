@@ -12,8 +12,8 @@ const mainStyle = StyleSheet.create({
     elevation: 8,
   },
   imgContainer: {
-    height: 150,
     width: "100%",
+    maxWidth: 160,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     overflow: "hidden",
@@ -23,10 +23,18 @@ const mainStyle = StyleSheet.create({
     fontFamily: "sans-serif",
     color: "black",
     fontWeight: "bold",
+    marginLeft: 10,
   },
   image: {
     width: "100%",
     height: "100%",
+  },
+  blogCont: {
+    flexDirection: "row",
+  },
+  desc: {
+    padding: 10,
+    maxWidth: "80%",
   },
 });
 

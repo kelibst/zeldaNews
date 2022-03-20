@@ -34,15 +34,20 @@ const RenderPost: React.FC<Props> = ({ item, navigator }) => {
           navigator.navigate("PostDetails", { id: item.id, title: item.title });
         }}
       >
-        <View>
+        <View style={mainStyle.blogCont}>
           <View style={mainStyle.imgContainer}>
             <Image style={mainStyle.image} source={{ uri: item.post_img }} />
           </View>
-          <View>
-            <TouchableOpacity>
+          <TouchableOpacity style={mainStyle.detCont}>
+            <View>
               <Text style={mainStyle.title}>{item?.title}</Text>
-            </TouchableOpacity>
-          </View>
+            </View>
+            <View>
+              <Text style={mainStyle.desc}>
+                {item?.description.slice(0, 100) + "..."}
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </Tocmp>
     </View>
@@ -56,19 +61,9 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginTop: 10,
     marginBottom: 10,
-    minHeight: 200,
+    minHeight: 120,
     borderRadius: 10,
     backgroundColor: "white",
-  },
-  shadows: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    elevation: 8,
   },
 });
 export default RenderPost;
